@@ -4,8 +4,9 @@ public class Sort {
         int[] array = new int[]{1,5,7,4,3,8,0,6,2,9};
         //sort.bubbleSort(array);
         //sort.selectionSort(array);
-        sort.insertionSort(array);
-        for (int x : array) {
+        //sort.insertionSort(array);
+        int[] smth = sort.mergeSort(array);
+        for (int x : smth) {
             System.out.println(x);
         }
     }
@@ -60,5 +61,50 @@ public class Sort {
 
             }
         }
+    }
+
+    /**
+     *
+     * Merge sort realization
+     */
+    private int[] merge(int[] arr1, int[] arr2) {
+        int[] result = new int[arr1.length + arr2.length];
+        int index1 = 0;
+        int index2 = 0;
+        int indexResult = 0;
+        while (index1 < arr1.length && index2 < arr2.length) {
+            if (arr1[index1] < arr2[index2]) {
+                result[indexResult] = arr1[index1];
+                ++index1;
+            } else {
+                result[indexResult] = arr2[index2];
+                ++index2;
+            }
+            ++indexResult;
+        }
+        while (index1 < arr1.length) {
+            result[indexResult] = arr1[index1];
+            ++index1;
+            ++indexResult;
+        }
+        while (index2 < arr2.length) {
+            result[indexResult] = arr2[index2];
+            ++index2;
+            ++indexResult;
+        }
+        return result;
+    }
+
+    public int[] mergeSort(int[] array) {
+        if (array.length < 2) {
+            return array;
+        }
+        int[] firstHalf = new int[array.length / 2];
+        int[] secondHalf = new int[array.length - array.length / 2];
+        System.arraycopy(array, 0, firstHalf, 0, array.length / 2);
+        System.arraycopy(array, array.length / 2, secondHalf, 0, array.length - array.length / 2);
+        firstHalf = mergeSort(firstHalf);
+        secondHalf = mergeSort(secondHalf);
+        return merge(firstHalf, secondHalf);
     }
 }
