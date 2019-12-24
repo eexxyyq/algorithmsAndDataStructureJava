@@ -1,4 +1,7 @@
 public class Search {
+    /**
+     * binary search realization
+     * */
     public void binarySearch(int[] array, int value) {
         int low = 0;
         int high = array.length - 1;
