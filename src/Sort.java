@@ -3,7 +3,8 @@ public class Sort {
         Sort sort = new Sort();
         int[] array = new int[]{1,5,7,4,3,8,0,6,2,9};
         //sort.bubbleSort(array);
-        sort.selectionSort(array );
+        //sort.selectionSort(array);
+        sort.insertionSort(array);
         for (int x : array) {
             System.out.println(x);
         }
@@ -41,6 +42,22 @@ public class Sort {
                 int tmp = array[i];
                 array[i] = array[index];
                 array[index] = tmp;
+            }
+        }
+    }
+
+    /**
+     *Insertion Sort realization
+     */
+    public void insertionSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int j = i - 1;
+            int key = array[i];
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j -= 1;
+                array[j + 1] = key;
+
             }
         }
     }
