@@ -1,14 +1,17 @@
 public class Sort {
     public static void main(String[] args) {
         Sort sort = new Sort();
+        Search search = new Search();
         int[] array = new int[]{1,5,7,4,3,8,0,6,2,9};
-        //sort.bubbleSort(array);
-        //sort.selectionSort(array);
-        //sort.insertionSort(array);
-        int[] smth = sort.mergeSort(array);
-        for (int x : smth) {
-            System.out.println(x);
-        }
+//        sort.bubbleSort(array);
+//        sort.selectionSort(array);
+//        sort.insertionSort(array);
+//        int[] smth = sort.mergeSort(array);
+//        for (int x : smth) {
+//            System.out.println(x);
+//        }
+        int[] tmp = sort.mergeSort(array);
+        search.binarySearch(tmp, 6);
     }
 
     /**
