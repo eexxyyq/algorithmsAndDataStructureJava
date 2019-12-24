@@ -1,13 +1,17 @@
 public class Sort {
     public static void main(String[] args) {
         Sort sort = new Sort();
-        int[] array = new int[]{1,5,7,4,3,8,0,6,4,2,9};
+        int[] array = new int[]{1,5,7,4,3,8,0,6,2,9};
         sort.bubbleSort(array);
         for (int x : array) {
             System.out.println(x);
         }
     }
 
+    /**
+     * Bubble Sort realization
+     *
+     */
     public void bubbleSort(int[] array) {
         for (int i = array.length - 1; i >= 1; i--) {
             for (int j = 0; j < i ; j++) {
